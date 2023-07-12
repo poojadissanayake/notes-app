@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesListComponent } from './pages/notes-list/notes-list.component';
 import { MainLayoutsComponent } from './pages/main-layouts/main-layouts.component';
+import { NoteCardComponent } from './note-card/note-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
-    MainLayoutsComponent
+    MainLayoutsComponent,
+    NoteCardComponent
   ],
   imports: [
     BrowserModule,
