@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-note-card',
@@ -6,6 +6,11 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
   styleUrls: ['./note-card.component.scss']
 })
 export class NoteCardComponent {
+
+  @Input ('title') title! : string;
+  // when the input name of the binding property and property name is same we can clean up the code by,
+  //  removing the binding property name 
+  @Input () body! : string;
 
 //   'truncator' in the 'NoteCardComponent' class does not have an 
 // initializer in the constructor and is not definitely assigned a value before it is used.

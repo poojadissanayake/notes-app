@@ -12,7 +12,10 @@
     </div>
 
     <div class="notes-list">
-        <app-note-card></app-note-card>
+        <!-- "" -> is used to mention property name while " '' " -> used to mention strings in angular 
+        another way is removing the [] from the property and remove '' from property value
+        -->
+        <app-note-card title = 'This is the title' [body] = "'this is the body content'"></app-note-card>
         <app-note-card></app-note-card>
         <app-note-card></app-note-card>
     </div>
