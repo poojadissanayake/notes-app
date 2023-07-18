@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-note-card',
@@ -10,7 +10,10 @@ export class NoteCardComponent {
   @Input ('title') title! : string;
   // when the input name of the binding property and property name is same we can clean up the code by,
   //  removing the binding property name 
-  @Input () body! : string;
+  @Input() body! : string;
+  @Input() link! : string;
+
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
 //   'truncator' in the 'NoteCardComponent' class does not have an 
 // initializer in the constructor and is not definitely assigned a value before it is used.
@@ -122,11 +125,11 @@ export class NoteCardComponent {
       // If there is no text overflow, it sets the display style of the truncator element to "none" using 'renderer.setStyle'. 
       // This will hide the truncator.
 
-      console.log("else");
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none');
     }
   }
   
-
-
+  onXBtnClick() {
+    this.deleteEvent.emit();
+  }
 }

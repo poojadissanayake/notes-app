@@ -14,10 +14,20 @@
     <div class="notes-list">
         <!-- "" -> is used to mention property name while " '' " -> used to mention strings in angular 
         another way is removing the [] from the property and remove '' from property value
+
+        title = 'This is the title' [body] = "'this is the body content'"
         -->
-        <app-note-card title = 'This is the title' [body] = "'this is the body content'"></app-note-card>
-        <app-note-card></app-note-card>
-        <app-note-card></app-note-card>
+
+        <app-note-card  
+            *ngFor="let note of notes; index as i" 
+            [link] = "i.toString()"
+            (delete) = "deleteNote(i)"
+            [title] = "note.title" 
+            [body] = "note.body">
+        </app-note-card>
+        
     </div>
+
+    <button class="button floating-add-button is-primary" routerLink="new">+ Add</button>
 
 </div>
