@@ -11,7 +11,7 @@
           </div>
     </div>
 
-    <div class="notes-list">
+    <div class="notes-list" [@listAnim]>
         <!-- "" -> is used to mention property name while " '' " -> used to mention strings in angular 
         another way is removing the [] from the property and remove '' from property value
 
@@ -21,6 +21,7 @@
         <app-note-card  
             *ngFor="let note of notes; index as i" 
             [link] = "i.toString()"
+            [@itemAnim]
             (delete) = "deleteNote(i)"
             [title] = "note.title" 
             [body] = "note.body">
